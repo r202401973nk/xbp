@@ -24,10 +24,10 @@ logotohome img{
 html, body {
 	font-size: 16px;
 	font-family: sans-serif;
-	color: #393939;
+	color: #62534e;
     margin-left: 15px;
     margin-bottom: 40px;
-	background: #efefef;
+	background: #ffff;
 }
 h1{
     text-indent: 0em;
@@ -48,7 +48,7 @@ p{
 }
 span.blackback{
     text-indent: 3em;
-    background: #393939;
-    color: #efefef;
+    background: #62534e;
+    color: #ffff;
 }
 

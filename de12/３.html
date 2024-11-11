@@ -2,39 +2,41 @@
 <html lang="jp">
 <head>
     <!-- ⑥↓タイトルを変えてみよう -->
-    <title>yuina</title>
+    <title>pythonゲーム作成</title>
     <!-- ⑤スタイルシートの設定をしよう -->
     <link rel="stylesheet" href="./css/style.css">
     <!-- h1.htmlからある行をコピペしてくればOK -->
 </head>
 <body>
-    <h1>第１回 </h1>
-    
-    <!-- 塊ごとにdivタグで区切るようにしましょう。 -->
+    <h1>体内時計ゲーム</h1>
     <div>
-         <!-- ①↓に文字を書いてみよう -->
-          あああ<br>
-          こんにちは<br>
-         <!-- ②↓に画像（imagesフォルダにあるtest.png）を挿入してみよう -->
-          <img src="./images/testimage.png"width="30%"><br>
-          <img src="./images/testimage.png"width="40%"><br>
-          <img src="../images/0_XBlogo.png"width="30%"><br>
-         <!-- ③↓に箇条書きをしてみよう -->
-          <ol>
-            <li>えびフライ</li>
-            <li>オムライス</li>
-          </ol>
-          <ul>
-            <li>うううう</li>
-            <li>ええええ</li>
-          </ul>
-         <!-- ④↓に外部リンクを作ってみよう -->
-          <a href="./index.html">デザイン演習Ⅰ・Ⅱトップページ</a><br>
-          <a href=".//index.html">XBPトップページ</a><br>
-          <a href="https://www.yahoo.co.jp/"target="_blank">Yahoo</a><br>
-          <a href="./files/test.pdf"target="_blank">pdfファイル</a><br>
-          <a href="https://www.amazon.co.jp/ref=nav_logo"target="_blank">amazon</a><br>
-          <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/JM_Y_C4QQ1c?si=ZG1YNg__dbT-MXMQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+    私は体内時計ゲームを作りました。<br>
+    ルールはシンプルで自分の設定した秒数と誤差が±0.5秒以内だと成功、±0.5秒を超えてしまうと失敗です。
+    <h2>ソースコード</h2>
+    <pre><code>
+      import time
+
+      print("体内時計ゲームゲーム")
+      print("このゲームは自分の体内時計が正確か確かめるゲームです。誤差±0.5秒まではチャレンジ成功です。")
+      
+      player_input = int(input("チャレンジする秒数を入力してください。"))
+      
+      input("準備ができたらEnterキーを押してスタートしてください")
+      start_time = time.time()
+      
+      input("あなたがチャレンジする秒数が経ったと思ったらEnterキーを押してください")
+      end_time = time.time()
+      
+      elapsed_time = end_time - start_time
+      print(f"秒数: {elapsed_time:.2f}秒")
+      
+      if  player_input - 0.5 <=elapsed_time <= player_input + 0.5:
+          print("おめでとうございます！あなたの体内時計は正確です！")
+      else:
+          print("残念！あなたの体内時計は正確ではありません！")
+    </code></pre>
+    <h2>感想</h2> 
+
     </div>
 
 </body>

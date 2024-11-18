@@ -1,53 +1,62 @@
 <!DOCTYPE html>
 <html lang="jp">
 <head>
-    <title>気分にあったプレイリストの検索</title>
+    <title>可能性の模索</title>
     <!-- ⑤スタイルシートの設定をしよう -->
     <link rel="stylesheet" href="./css/style.css">
     <!-- h1.htmlからある行をコピペしてくればOK -->
 </head>
 <body>
-    <h2></h2>
+    <h2>気分にあったプレイリストの検索</h2>
+    SpotifyのAPIを利用して気分にあった曲のプレイリストを検索してくれるプログラムを作成した。<br>
+   気分だけでなくポップスやジャズなどのジャンルも選択できるようにした。英語でも日本語でも検索できるが検索する言語はそろえた方が良い。<br>
+   使用の際には、PCでSpotifyの開発者向けページにアクセスしアカウントにログインをして、アプリ名などの登録を行う必要がある。<br>
+   詳しくは<a href="https://nehapire.com/web/spotify-api/"target="_blank">ここ</a>を参照。
     <h2>ソースコード</h2>
-    <pre><code>
-import spotipy
-from spotipy.oauth2 import SpotifyClientCredentials
+    <pre><code> <font color="#80800">
+        import spotipy
+        from spotipy.oauth2 import SpotifyClientCredentials
+        
+        # 認証情報
+        client_id ="Client ID" # Client IDを入力
+        client_secret = "Client secret" # Client secretを入力
+        ccm = SpotifyClientCredentials(client_id = client_id, client_secret = client_secret)
+        spotify = spotipy.Spotify(client_credentials_manager = ccm)
+        
+        # 気分とジャンルを定義
+        mood = input("気分を教えてください : ")
+        genre = int(input("ジャンルを選択しますか？ はい → 1  いいえ → 2: "))
+        if genre == "1":
+            genre_select = input("指定するジャンルを教えてください : ")
+        else:
+            genre_select = None
 
-# 認証情報
-client_id ="" # Client IDを入力してください
-client_secret = "" # Client secretを入力してください
-ccm = SpotifyClientCredentials(client_id = client_id, client_secret = client_secret)
-spotify = spotipy.Spotify(client_credentials_manager = ccm)
+        if genre_select is None:
+            query = f'{mood}'  # 気分のみで検索
+        else:
+            query = f'{mood} {genre_select}'  # 気分とジャンルで検索
+        
+        # 検索
+        how_limit=int(input("いくつプレイリストを探しますか？: "))
+        results = spotify.search(q=query, type="playlist", limit=how_limit)
 
-# 気分とジャンルを定義
-mood = input("気分を教えてください: ")
-genre = input("ジャンルを選択しますか？yes or no ※気分を日本語で入力した場合ジャンルは選択できません: ")
-if genre == "yes":
-    genre_select = input("指定するジャンルを教えてください: ")
-else:
-    genre_select = None
-
-
-if genre_select is None:
-    query = f'playlist:"{mood}"'  # 気分のみで検索
-else:
-    query = f'genre:"{genre_select}" playlist:"{mood}"'  # ジャンルと気分で検索
-
-# 検索
-how_limit=int(input("いくつプレイリストを探しますか？: "))
-results = spotify.search(q=query, type="playlist", limit=how_limit)
-
-# 検索結果からプレイリスト名とその詳細を表示
-for idx, playlist in enumerate(results['playlists']['items']):
-    playlist_name = playlist['name']
-    playlist_description = playlist['description']
-    playlist_url = playlist['external_urls']['spotify']
-    print(f"{idx + 1}. {playlist_name}")
-    print(f"   説明: {playlist_description}")
-    print(f"   URL: {playlist_url}\n")
-    </code></pre>
-    <a href="https://developer.spotify.com/"target="_blank">Spotify Developers Home</a><br>
-    <a href="https://nehapire.com/web/spotify-api/"target="_blank">ねはぴれ Spotify API</a><br>
+        # 検索結果からプレイリスト名とその詳細を表示
+        for idx, playlist in enumerate(results['playlists']['items']):
+            playlist_name = playlist['name']
+            playlist_description = playlist['description']
+            playlist_url = playlist['external_urls']['spotify']
+            print(f"{idx + 1}. {playlist_name}")
+            print(f"   説明: {playlist_description}")
+            print(f"   URL: {playlist_url}\n")
+        </font></code></pre>
+    <h2>反省点</h2>
+     Spotifyの検索画面にある「ジャンル＆気分」というフィルターを利用できないかと考えていたが、APIにその機能はなかったため、
+    プレイリストのタイトルや説明文に「happy」やジャンルの「pop」などの記述があるものしか表示されないプログラムになってしまった。
+    そのため気分やジャンルを英語で入力すると英語圏の人が作成したプレイリストが表示され、日本語で入力すると日本人が作成したプレイリストが表示されるようになってしまった。<br>
+    言語関係なく気分やジャンルを検索できるようにすれば表示できるプレイリストの幅も広がると思う。<br>
+    <h2>参考</h2>
+    API利用<a href="https://nehapire.com/web/spotify-api/"target="_blank">ねはぴれ Spotify API</a><br>
+    ChatGPT「SpotifyのAPIを利用して、気分とジャンルにを指定してプレイリストを検索するPythonコードを書いて」という質問をもとに自分なりに変更を加えた
     </div>
 
 </body>

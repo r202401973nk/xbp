@@ -2,24 +2,24 @@ import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 
 # 認証情報
-client_id ="" # Client IDを入力してください
-client_secret = "" # Client secretを入力してください
+client_id ="00875d1f171846cf855a7053b00af61f" # Client IDを入力してください
+client_secret = "2dad4ca9e8b441439dd4de79b4f8033d" # Client secretを入力してください
 ccm = SpotifyClientCredentials(client_id = client_id, client_secret = client_secret)
 spotify = spotipy.Spotify(client_credentials_manager = ccm)
 
 # 気分とジャンルを定義
-mood = input("気分を教えてください: ")
-genre = input("ジャンルを選択しますか？yes or no ※気分を日本語で入力した場合ジャンルは選択できません: ")
-if genre == "yes":
-    genre_select = input("指定するジャンルを教えてください: ")
+mood = input("気分を教えてください 例 happy sad: ")
+genre = int(input("ジャンルを選択しますか？ はい → 1  いいえ → 2: "))
+if genre := "1":
+    genre_select = input("指定するジャンルを教えてください 例 pop jazz: ")
 else:
     genre_select = None
 
 
 if genre_select is None:
-    query = f'playlist:"{mood}"'  # 気分のみで検索
+    query = f'{mood}'  # 気分のみで検索
 else:
-    query = f'genre:"{genre_select}" playlist:"{mood}"'  # ジャンルと気分で検索
+    query = f'{mood} {genre_select}'  # 気分とジャンルで検索
 
 # 検索
 how_limit=int(input("いくつプレイリストを探しますか？: "))

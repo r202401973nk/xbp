@@ -2,8 +2,8 @@ import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 
 # 認証情報
-client_id ="00875d1f171846cf855a7053b00af61f" # Client IDを入力してください
-client_secret = "2dad4ca9e8b441439dd4de79b4f8033d" # Client secretを入力してください
+client_id ="" # Client IDを入力してください
+client_secret = "" # Client secretを入力してください
 ccm = SpotifyClientCredentials(client_id = client_id, client_secret = client_secret)
 spotify = spotipy.Spotify(client_credentials_manager = ccm)
 

@@ -27,7 +27,7 @@ html, body {
 	color: #62534e;
     margin-left: 15px;
     margin-bottom: 40px;
-	background: #ffff;
+	background: #f4f2f1;
 }
 h1{
     text-indent: 0em;
@@ -49,6 +49,7 @@ p{
 span.blackback{
     text-indent: 3em;
     background: #62534e;
-    color: #ffff;
+    color: #f4f2f1;
 }
+
 

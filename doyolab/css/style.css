@@ -1,56 +1,83 @@
 @charset "utf-8";
-/* 冒頭でimport */
 @import url('https://fonts.googleapis.com/css?family=Raleway:700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:400,700&display=swap&subset=japanese');
-/* フォントを指定したいところで */
 
-logo img{
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    object-fit: cover; /* 画像のトリミング */
-}
-
-logotohome img{
-    border-radius: 70%;
-    width: 70px;
-    height: 70px;
-    object-fit: cover; /* 画像のトリミング */
+/* ========== 全体 ========== */
+body {
+  background: #f4f2f1;
+  color: #333;
+  margin: 0;
+  text-align: center;
 }
 
 
+/* ヘッダー */
+header {
+  background-color: #fff; /* ヘッダーの背景を白に */
+  padding: 2em 0 1em 0;
+  margin-bottom: 3em;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* 軽く影をつけて境界を出す */
+}
 
-/* ========== common ========== */
-html, body {
-	font-size: 16px;
-	font-family: sans-serif;
-	color: #62534e;
-    margin-left: 15px;
-    margin-bottom: 40px;
-	background: #ffff;
+h1 {
+  font-size: 2.2rem;
+  margin: 0;
+  font-family: 'Impact', sans-serif; /* ← この1行を追加！ */
+  letter-spacing: 1px; /* ← おまけ：Impactは文字がギュッと詰まりやすいので、少し文字の間隔を空けると読みやすくてかっこよくなります（お好みで調整してください） */
 }
-h1{
-    text-indent: 0em;
-    padding: 1rem 2rem;
-    border-left: 5px solid #383331;
-    background: #f4f4f4;
- }
-h2{
-    margin-left: 1em;
-    margin-top: 1em;
+/* ヘッダー内のサブタイトル（-yuina-） */
+h2 {
+  font-size: 1.2rem;
+  margin: 0.2em 0 1.5em 0;
+  font-weight: bold; /* ← normalからboldに変更！ */
+  color: #666;
 }
-h3{
-    margin-left: 2em;
+
+/* メニューバー（ナビゲーション） */
+.navbar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center; /* 中央揃え */
+  gap: 3em; /* 項目間の間隔 */
 }
-div{
-    margin-top: 1em;
-    margin-left: 3em;
+
+/* メニューバーのリンク（HOME, doyolab） */
+.navbar a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 700;/* ← ここがboldになっていれば太字になります */
+  font-size: 1rem;
+  transition: color 0.2s;
 }
-p{
-    margin-left: 3em;
+
+.navbar a:hover {
+  color: #999; /* ホバー時に少し色を薄く */
 }
-span.blackback{
-    text-indent: 3em;
-    background: #62534e;
-    color: #ffff;
+
+/* カードリスト */
+.card-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1em;
+  max-width: 400px;
+  margin: 0 auto 3em auto;
+}
+
+.card {
+  display: block;
+  background: #fff;
+  padding: 1em;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-decoration: none;
+  color: #333;
+  font-size: 1.1rem;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.card:hover {
+  background-color: #333;
+  color: #fff;
 }

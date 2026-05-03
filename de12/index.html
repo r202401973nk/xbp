@@ -1,41 +1,50 @@
 <!DOCTYPE html>
-<html lang="jp">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <title>yuinaのHP</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/style2.css">
     <link rel="shortcut icon" href="./images/xbp.ico">
 </head>
 <body>
-    <logotohome>
-    <a href="../index.html"><img src="./images/0_XBlogo.png" alt=""></a>
-    </logotohome>
-    <h1>デザイン演習Ⅰ・Ⅱ</h1>
+    <!-- 🌟 追加：背景のドット柄 -->
+    <div class="bg_pattern Polka_v2"></div>
+
+    <header>
+        <h1>デザイン演習Ⅰ・Ⅱ</h1>
+        <nav class="navbar">
+            <ul>
+                <li><a href="../index.html">HOME</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 🌟 ヘッダーとの距離を取るためのまとまり -->
+    <div class="subpage-container">
+        
         <h2>HTMLに関すること</h2>
-        <ol>
-            <li><a href="./hp1.html" target="_blank">htmlの基礎知識</a></li>
-            <li><a href="./hp2.html" target="_blank">htmlのwork</a></li>
-            <li><a href="./test.html" target="_blank">テストページ</a></li>
-        </ol>
+        <!-- 縦一列のカードリスト -->
+        <div class="text-card-list">
+            <a href="./hp1.html" class="text-card" target="_blank">htmlの基礎知識</a>
+            <a href="./hp2.html" class="text-card" target="_blank">htmlのwork</a>
+            <a href="./test.html" class="text-card" target="_blank">テストページ</a>
+        </div>
+
         <h2>演習ノート一覧</h2>
-        <ol>
-            <li><a href="./1.html" target="_blank">第１回</a></li>
-            <li><a href="./2.html" target="_blank">路上観察</a></li>
-            <li><a href="./files/detasciens.pdf" target="_blank">データサイエンス</a></li>
-            <li><a href="./３.html" target="_blank">pythonゲーム作成</a></li>
-            <li><a href="./４.html" target="_blank">可能性の模索</a></li>
-            <li><a href="./5.html" target="_blank">テキストマイニング</a></li>
-            <li><a href="./6.html" target="_blank">インタビュー</a></li>
-            <li><a href="./7.html" target="_blank">インタビュー共起ネットワーク</a></li>
-            <li><a href="./files/謎ウナギ.pdf" target="_blank">UPS</a></li>
-        </ol>
-
-
-
-    
-<br>
-<br>
-
+        <div class="text-card-list">
+            <!-- 🌟 クラス名のダブルクォーテーションの抜けも修正しました -->
+            <a href="./1.html" class="text-card" target="_blank">第１回</a>
+            <a href="./2.html" class="text-card" target="_blank">路上観察</a>
+            <a href="./files/detasciens.pdf" class="text-card" target="_blank">データサイエンス</a>
+            <a href="./3.html" class="text-card" target="_blank">pythonゲーム作成</a>
+            <a href="./4.html" class="text-card" target="_blank">可能性の模索</a>
+            <a href="./5.html" class="text-card" target="_blank">テキストマイニング</a>
+            <a href="./6.html" class="text-card" target="_blank">インタビュー</a>
+            <a href="./7.html" class="text-card" target="_blank">インタビュー共起ネットワーク</a>
+            <a href="./files/謎ウナギ.pdf" class="text-card" target="_blank">UPS</a>
+        </div>
+        
+    </div>
 
 </body>
 </html>

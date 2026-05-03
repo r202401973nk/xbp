@@ -1,83 +1,163 @@
 @charset "utf-8";
-@import url('https://fonts.googleapis.com/css?family=Raleway:700&display=swap');
-@import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:400,700&display=swap&subset=japanese');
+/* 丸ゴシックの読み込みを削除し、英語用のRalewayのみ残します */
+@import url('https://fonts.googleapis.com/css?family=Raleway:800&display=swap');
 
 /* ========== 全体 ========== */
 body {
-  background: #f4f2f1;
-  color: #333;
+  /* 英語はRaleway、日本語は游ゴシックが優先して当たる最強の組み合わせ */
+  font-family: 'Raleway', "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "Hiragino Sans", "Hiragino Kaku Gothic ProN", sans-serif;
+  background-color: #F4F4EF;
+  color: #5B545C;
   margin: 0;
+  padding: 0;
   text-align: center;
+  overflow-x: hidden;
 }
 
+/* ========== ドット柄背景 ========== */
+.bg_pattern {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #F4F4EF; /* テーマカラーのPaper */
+  opacity: 0.6;
+  z-index: -1;
+}
 
-/* ヘッダー */
+.Polka_v2 {
+  /* ドットを冷たい青グレーから、マスタードに似合う温かいストーングレー(#B0A8A6)に変更！ */
+  background-image: radial-gradient(#B0A8A6 2px, transparent 2px), radial-gradient(#B0A8A6 2px, transparent 2px);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
+}
+
+/* ========== ヘッダー ========== */
 header {
-  background-color: #fff; /* ヘッダーの背景を白に */
-  padding: 2em 0 1em 0;
-  margin-bottom: 3em;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* 軽く影をつけて境界を出す */
+  padding: 4em 0 3em 0;
+  margin-bottom: 2em;
+  position: relative;
+  z-index: 100;
 }
 
 h1 {
-  font-size: 2.2rem;
+  font-size: 3.2rem;
+  font-family: 'Impact', sans-serif;
   margin: 0;
-  font-family: 'Impact', sans-serif; /* ← この1行を追加！ */
-  letter-spacing: 1px; /* ← おまけ：Impactは文字がギュッと詰まりやすいので、少し文字の間隔を空けると読みやすくてかっこよくなります（お好みで調整してください） */
-}
-/* ヘッダー内のサブタイトル（-yuina-） */
-h2 {
-  font-size: 1.2rem;
-  margin: 0.2em 0 1.5em 0;
-  font-weight: bold; /* ← normalからboldに変更！ */
-  color: #666;
+  color: #5B545C;
+  text-shadow: none; /* タイトルは影なしフラットでかっこよく！ */
+  letter-spacing: 2px;
 }
 
-/* メニューバー（ナビゲーション） */
+h2 {
+  font-size: 1.1rem;
+  margin: 0.5em 0 2em 0;
+  color: #B0A8A6; /* サブタイトルもドットと同じ温かいグレーに統一 */
+  letter-spacing: 3px;
+  font-weight: bold; 
+}
+
+/* ナビゲーション（ボタン風に洗練） */
 .navbar ul {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
-  justify-content: center; /* 中央揃え */
-  gap: 3em; /* 項目間の間隔 */
+  justify-content: center;
+  gap: 1.5em;
 }
 
-/* メニューバーのリンク（HOME, doyolab） */
 .navbar a {
   text-decoration: none;
-  color: #333;
-  font-weight: 700;/* ← ここがboldになっていれば太字になります */
-  font-size: 1rem;
-  transition: color 0.2s;
+  color: #5B545C;
+  font-size: 0.95rem;
+  font-weight: bold;
+  padding: 10px 28px;
+  border-radius: 40px;
+  background: #fff;
+  border: 2px solid #5B545C;
+  box-shadow: 4px 4px 0px #5B545C; /* 固い影 */
+  transition: all 0.2s ease;
 }
 
 .navbar a:hover {
-  color: #999; /* ホバー時に少し色を薄く */
+  transform: translate(2px, 2px); /* 押し込む動き */
+  box-shadow: 2px 2px 0px #ffb71c; /* ホバーでマスタードに！ */
+  border-color: #ffb71c;
+  color: #ffb71c;
 }
 
-/* カードリスト */
+/* ========== カードリスト ========== */
 .card-list {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 1em;
-  max-width: 400px;
-  margin: 0 auto 3em auto;
+  /* 自動詰め込みをやめて、PCでは強制的に「2列」にする！ */
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 3em;
+  /* 2列にした時にカードが横に伸びすぎないよう、最大幅を900px→760pxくらいにキュッと狭めます */
+  max-width: 760px; 
+  margin: 0 auto 5em auto;
+  padding: 0 2em;
+  position: relative;
+  z-index: 100;
+}
+
+/* 📱 ここからスマホ用の魔法（画面幅が600px以下の時だけ発動） */
+@media screen and (max-width: 600px) {
+  .card-list {
+    /* スマホでは「1列」にする！ */
+    grid-template-columns: 1fr; 
+    /* スマホの小さな画面に合わせて、カードの隙間を少し狭くする */
+    gap: 2em; 
+  }
 }
 
 .card {
-  display: block;
-  background: #fff;
-  padding: 1em;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #ffffff;
+  padding: 2em 1.5em;
+  border-radius: 24px;
   text-decoration: none;
-  color: #333;
-  font-size: 1.1rem;
-  transition: background-color 0.2s, color 0.2s;
+  color: #5B545C;
+  border: 2px solid #5B545C;
+  box-shadow: 6px 6px 0px #5B545C;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .card:hover {
-  background-color: #333;
-  color: #fff;
+  transform: translate(3px, 3px);
+  box-shadow: 3px 3px 0px #ffb71c; /* 沈む影もマスタード */
+  border-color: #ffb71c;
+}
+
+/* ========== 画像（究極のシンプル：角丸正方形） ========== */
+.card-img {
+  width: 100%;
+  max-width: 220px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  margin-bottom: 1.5em;
+  border-radius: 16px;
+  border: 2px solid #5B545C;
+  background-color: #F4F4EF;
+  transition: all 0.3s ease;
+}
+
+.card:hover .card-img {
+  border-color: #ffb71c; /* ホバーでマスタードのフチに！ */
+  transform: scale(1.03); 
+}
+
+/* ========== カードの文字 ========== */
+.card-title {
+  font-size: 1.15rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: color 0.3s;
+}
+
+.card:hover .card-title {
+  color: #ffb71c; /* ホバーでマスタード色に！ */
 }

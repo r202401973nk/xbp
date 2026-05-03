@@ -125,3 +125,22 @@ h2 {
   color: #ffb71c;
   background-color: #ffffff;
 }
+/* ========== [修正] 最後の特別な重要カード(UPS) ========== */
+
+/* （ここは変更なし）特別なカード(Featured)の通常状態のデザイン */
+.text-card.text-card-featured {
+  border-color: #ffb71c;
+  box-shadow: 6px 6px 0px #ffb71c;
+  padding: 1.8em 2em;
+  font-size: 1.3rem;
+  position: relative;
+  margin-top: 1.5em;
+}
+
+/* （ここは変更なし）特別なカードのホバー時の挙動 */
+.text-card.text-card-featured:hover {
+  transform: translate(3px, 3px);
+  box-shadow: 3px 3px 0px #ffb71c;
+  color: #ffb71c;
+  background-color: #ffffff;
+}

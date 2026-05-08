@@ -1,127 +1,169 @@
 @charset "utf-8";
-@import url('https://fonts.googleapis.com/css?family=Raleway:800&display=swap');
 
-/* ========== 全体 ========== */
-body {
-  font-family: 'Raleway', "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "Hiragino Sans", "Hiragino Kaku Gothic ProN", sans-serif;
-  background-color: #F4F4EF;
-  color: #5B545C;
+/* ========== フォントの読み込み ========== */
+@import url('https://fonts.googleapis.com/css?family=Raleway:700&display=swap');
+
+/* ========== 全体（外側の背景） ========== */
+html, body {
+  font-size: 16px;
+  font-family: sans-serif; 
+  
+  /* ★外側をメインページと「全く同じ」ドット柄に！★ */
+  background-color: #F4F4EF; 
+  background-image: radial-gradient(rgba(176, 168, 166, 0.6) 2px, transparent 2px), radial-gradient(rgba(176, 168, 166, 0.6) 2px, transparent 2px);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
+  
+  color: #62534e;
   margin: 0;
   padding: 0;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
   overflow-x: hidden;
 }
 
-/* ========== ドット柄背景 ========== */
-.bg_pattern {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: #F4F4EF;
-  opacity: 0.6;
-  z-index: -1;
-}
-
-.Polka_v2 {
-  background-image: radial-gradient(#B0A8A6 2px, transparent 2px), radial-gradient(#B0A8A6 2px, transparent 2px);
-  background-size: 40px 40px;
-  background-position: 0 0, 20px 20px;
-}
-
-/* ========== ヘッダー ========== */
-header {
-  padding: 4em 0 3em 0;
+/* ========== コンテンツフレーム（縁取り） ========== */
+.content-frame {
+  /* ★縁の中の色をメインページと同じ白に！★ */
+  background-color: #ffffff; 
+  
+  /* ★縁の線をドットと同じ温かいストーングレー(#B0A8A6)に！★ */
+  border: 3px solid #B0A8A6; 
+  
+  border-radius: 36px;
+  padding: 3em 4em;
+  margin: 40px auto 80px auto;
+  
+  max-width: 1200px; /* PCで広々フィット！ */
+  width: 92%;
+  
+  box-sizing: border-box;
   position: relative;
-  z-index: 100;
+  z-index: 10;
 }
 
-h1 {
-  font-size: 3.2rem;
-  font-family: 'Impact', sans-serif;
-  margin: 0;
-  color: #5B545C;
-  text-shadow: none;
-  letter-spacing: 2px;
+/* ========== 「HOME」ボタン ========== */
+.navbar {
+  width: 100%;
 }
 
-/* ========== ナビゲーション（HOMEボタン） ========== */
-/* 🌟 ここが消えてしまっていたので復活させました！ */
 .navbar ul {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0 0 2em 0;
   display: flex;
-  justify-content: center;
-  gap: 1.5em;
-  margin-top: 1.5em; /* タイトル(h1)との間に少し隙間を作りました */
+  justify-content: flex-start; /* 左寄せ */
 }
 
-.navbar a {
+.navbar a.home-link {
   text-decoration: none;
   color: #5B545C;
+  font-family: 'Raleway', sans-serif;
   font-size: 0.95rem;
   font-weight: bold;
   padding: 10px 28px;
   border-radius: 40px;
-  background: #ffffff;
+  background: #fff;
   border: 2px solid #5B545C;
   box-shadow: 4px 4px 0px #5B545C;
   transition: all 0.2s ease;
-  display: inline-block; /* ボタンとしてしっかりクリックできるようにする魔法 */
+  display: inline-block;
 }
 
-.navbar a:hover {
+.navbar a.home-link:hover {
   transform: translate(2px, 2px);
   box-shadow: 2px 2px 0px #ffb71c;
   border-color: #ffb71c;
   color: #ffb71c;
 }
 
-/* ========== 各項目のタイトル(h2) ========== */
+/* ========== 見出し・文章のデザイン ========== */
+h1 {
+  position: relative;
+  color: #333;
+  text-shadow: 0 0 2px white;
+}
+h1:before {
+  content: "";
+  position: absolute;
+  background: #9de5ff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  top: 50%;
+  /* border: dashed 1px white; */
+  left: -15px;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  z-index: -1;
+}
 h2 {
-  font-size: 1.8rem;
-  margin: 1.5em 0 1em 0;
-  color: #5B545C;
-  letter-spacing: 3px;
-  font-weight: bold; 
+  margin-left: 1em;
+  margin-top: 1em; 
 }
 
-/* ========== サブページのレイアウト ========== */
-.subpage-container {
-  margin-top: 3em; 
-  margin-bottom: 5em;
-  padding: 0 2em;
+h3 {
+  margin-left: 2em;
 }
 
-/* ========== 文字だけカードのリスト（縦一列） ========== */
-.text-card-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2em;
-  max-width: 500px;
-  margin: 0 auto 3em auto;
+div {
+  margin-top: 1em;
+  margin-left: 3em;
 }
 
-.text-card {
+p {
+  margin-left: 3em;
+}
+
+/* 画像の調整 */
+.frame-image {
+  margin-left: 3em;
+  margin-top: 1em;
   display: block;
-  background: #ffffff;
-  padding: 1.2em 1.5em;
-  border-radius: 12px;
-  text-decoration: none;
-  color: #5B545C;
-  font-size: 1.1rem;
-  font-weight: bold;
-  border: 2px solid #5B545C;
-  box-shadow: 4px 4px 0px #5B545C;
-  transition: all 0.3s ease;
+  max-width: 100%;
+  height: auto;
 }
 
-.text-card:hover {
-  transform: translate(2px, 2px);
-  box-shadow: 2px 2px 0px #ffb71c;
-  border-color: #ffb71c;
-  color: #ffb71c;
-  background-color: #ffffff;
+/* リストの調整 */
+ul, ol {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ol {
+  margin-left: 4.5em; 
+}
+
+span.blackback {
+  text-indent: 3em; 
+  background: #62534e;
+  color: #ffff;
+}
+
+/* 参考文献などのテキストリンク */
+.content-frame a:not(.home-link) {
+  color: #0000ee; 
+  text-decoration: underline;
+  margin-left: 3em;
+  display: inline-block;
+  margin-bottom: 0.5em;
+}
+
+/* ========== スマホ用の調整（画面が768px以下の時に発動） ========== */
+@media screen and (max-width: 768px) {
+  .content-frame {
+    padding: 2em 1.5em;
+    width: 94%;
+    margin-top: 20px;
+    border-radius: 24px;
+  }
+  
+  h2 { margin-left: 0.5em; }
+  h3 { margin-left: 1em; }
+  div, p, .frame-image, .content-frame a:not(.home-link) {
+    margin-left: 1em; 
+  }
+  ol {
+    margin-left: 2.5em;
+  }
 }

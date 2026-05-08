@@ -97,6 +97,7 @@ h1:before {
   transform: translateY(-50%);
   z-index: -1;
 }
+
 h2 {
   margin-left: 1em;
   margin-top: 1em; 

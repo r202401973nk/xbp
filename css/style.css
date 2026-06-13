@@ -4,8 +4,8 @@
 /* ========== 全体 ========== */
 body {
   font-family: 'Raleway', "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "Hiragino Sans", "Hiragino Kaku Gothic ProN", sans-serif;
-  background-color: #F4F4EF;
-  color: #5B545C;
+  background-color: #FDFCF9; /* ほんのり温かいオフホワイト */
+  color: #705E57;            /* 優しいココアブラウン */
   margin: 0;
   padding: 0;
   text-align: center;
@@ -16,13 +16,14 @@ body {
 .bg_pattern {
   position: fixed;
   inset: 0; 
-  background-color: #F4F4EF;
+  background-color: #FDFCF9; /* 背景色に合わせる */
   opacity: 0.6;
   z-index: -1;
 }
 
 .Polka_v2 {
-  background-image: radial-gradient(#B0A8A6 2px, transparent 2px), radial-gradient(#B0A8A6 2px, transparent 2px);
+  /* ドットの色を薄いベージュグレーに */
+  background-image: radial-gradient(#D9D0C7 2px, transparent 2px), radial-gradient(#D9D0C7 2px, transparent 2px);
   background-size: 40px 40px;
   background-position: 0 0, 20px 20px;
 }
@@ -45,7 +46,7 @@ h1 {
 h2 {
   font-size: 1.1rem;
   margin: 0.5em 0 2em 0;
-  color: #B0A8A6;
+  color: #A4978E; /* サブタイトルも少し温かみのあるグレーブラウンに */
   letter-spacing: 3px;
   font-weight: bold; 
 }
@@ -68,17 +69,17 @@ h2 {
   padding: 10px 28px;
   border-radius: 40px;
   background: #fff;
-  border: 2px solid #5B545C;
-  box-shadow: 4px 4px 0px #5B545C;
+  border: 2px solid #705E57;      /* 枠線をブラウンに */
+  box-shadow: 4px 4px 0px #705E57; /* 影をブラウンに */
   transition: .2s; 
   display: inline-block; 
 }
 
 .navbar a:hover {
   transform: translate(2px, 2px);
-  box-shadow: 2px 2px 0px #ffb71c;
-  border-color: #ffb71c;
-  color: #ffb71c;
+  box-shadow: 2px 2px 0px #6BAED6; /* ホバー時は爽やかなソフトブルー */
+  border-color: #6BAED6;
+  color: #6BAED6;
 }
 
 /* ========== カードリスト ========== */
@@ -109,15 +110,15 @@ h2 {
   border-radius: 24px;
   text-decoration: none;
   color: inherit;
-  border: 2px solid #5B545C;
-  box-shadow: 6px 6px 0px #5B545C;
+  border: 2px solid #705E57;       /* 枠線をブラウンに */
+  box-shadow: 6px 6px 0px #705E57; /* 影をブラウンに */
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .card:hover {
   transform: translate(3px, 3px);
-  box-shadow: 3px 3px 0px #ffb71c;
-  border-color: #ffb71c;
+  box-shadow: 3px 3px 0px #6BAED6; /* ホバー時はソフトブルー */
+  border-color: #6BAED6;
 }
 
 /* ========== 画像 ========== */
@@ -128,13 +129,13 @@ h2 {
   object-fit: cover;
   margin-bottom: 1.5em;
   border-radius: 16px;
-  border: 2px solid #5B545C;
-  background-color: #F4F4EF;
+  border: 2px solid #705E57; /* 画像の枠線もブラウンに */
+  background-color: #FDFCF9;
   transition: .3s;
 }
 
 .card:hover .card-img {
-  border-color: #ffb71c;
+  border-color: #6BAED6;
   transform: scale(1.03); 
 }
 
@@ -147,5 +148,5 @@ h2 {
 }
 
 .card:hover .card-title {
-  color: #ffb71c;
+  color: #6BAED6; /* 文字もソフトブルーに */
 }

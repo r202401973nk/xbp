@@ -15,21 +15,13 @@ html, body {
   flex-direction: column;
   overflow-x: hidden;
 }
+body {
+  background: #F4F4EF;
+}
 
-/* ========== コンテンツフレーム（縁取り） ========== */
 .content-frame {
-  background-color: #ffffff; 
-  border: 3px solid #5B545C;
-  border-radius: 36px;
-  padding: 3em 4em;
-  margin: 40px auto 80px auto;
-  
-  max-width: 1200px; /* ★ここを1000pxから1200pxに戻しました！★ */
-  width: 92%;
-  
-  box-sizing: border-box;
-  position: relative;
-  z-index: 10;
+  border: none;
+  background: transparent;
 }
 
 /* ========== 「HOME」ボタン ========== */

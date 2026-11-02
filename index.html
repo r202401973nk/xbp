@@ -1,46 +1,182 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- スマホ表示を正しくするために追加を推奨 -->
-    <title>XBP_HPyuina</title>
-    <link rel="stylesheet" href="./css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="yuina's portfolio — デザインとものづくりの記録">
+  <meta name="theme-color" content="#F8F8F6">
+  <title>yuina's portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./css/style.css">
 </head>
+
 <body>
-    <!-- 背景のドット柄 -->
-    <div class="bg_pattern Polka_v2"></div>
+  <header class="hero" id="top">
+    <nav class="top-nav" aria-label="メインナビゲーション">
+      <a href="#top" class="nav-logo">X-BusinessProgram / doyolab</a>
+      <a href="#works" class="nav-explore">
+        EXPLORE <span aria-hidden="true">↘</span>
+      </a>
+    </nav>
 
-    <header>
-        <h1>X-Business Program</h1>
-        <h2>-yuina-</h2>
-        
-        <nav class="navbar">
-            <ul>
-                <li><a href="./doyolab/index.html">doyolab</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="hero-inner">
+      <img src="./images/表紙.png" alt="" class="cat-illustration">
+      <p class="hero-side-note">DESIGN / IDEAS / MAKING</p>
+    </div>
 
-    <main class="card-list">
-        <a href="./de12/index.html" class="card">
-            <img src="./images/演習12.jpeg" alt="デザイン演習1・2" class="card-img">
-            <span class="card-title">デザイン演習Ⅰ・Ⅱ</span>
+    <a href="#works" class="scroll-cue">
+      <span class="scroll-label">SCROLL TO EXPLORE</span>
+      <span class="scroll-line" aria-hidden="true"></span>
+      <span class="scroll-arrow" aria-hidden="true">↓</span>
+    </a>
+
+    <div class="hero-bottom" aria-label="掲載内容">
+      <span>WORKS &amp; NOTES</span>
+      <span class="hero-bottom-center" aria-hidden="true">✳</span>
+      <span>2024 — 2026</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="works-section" id="works">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">A COLLECTION OF IDEAS &amp; PROCESSES</p>
+          <h2>演習ノート一覧<span>.</span></h2>
+        </div>
+
+        <p class="section-intro">
+          考えて、試して、つくってみる。<br>
+          これまでの制作と学びの記録。
+        </p>
+      </div>
+
+      <div class="works-list">
+        <a href="./de12/index.html" class="work-item">
+          <div class="work-number" aria-hidden="true">01</div>
+          <div class="photo-side">
+            <div class="photo-frame">
+              <img src="./images/演習12.jpeg" alt="デザイン演習1・2の作品" loading="lazy">
+            </div>
+          </div>
+          <div class="description-side">
+            <p class="work-index">NOTE NO. 01</p>
+            <h3>デザイン演習<span>1, 2</span></h3>
+            <p class="work-description">観察し、考え、アイデアをかたちにする。</p>
+            <span class="work-link">VIEW NOTES <span aria-hidden="true">↗</span></span>
+          </div>
         </a>
-        
-        <a href="./de34/index.html" class="card">
-            <img src="./images/演習34.jpeg" alt="デザイン演習3・4" class="card-img">
-            <span class="card-title">デザイン演習Ⅲ・Ⅳ</span>
+
+        <a href="./de34/index.html" class="work-item reverse">
+          <div class="work-number" aria-hidden="true">02</div>
+          <div class="photo-side">
+            <div class="photo-frame">
+              <img src="./images/演習34.jpeg" alt="デザイン演習3・4の作品" loading="lazy">
+            </div>
+          </div>
+          <div class="description-side">
+            <p class="work-index">NOTE NO. 02</p>
+            <h3>デザイン演習<span>3, 4</span></h3>
+            <p class="work-description">試行錯誤を重ねながら、自分なりの答えを探す。</p>
+            <span class="work-link">VIEW NOTES <span aria-hidden="true">↗</span></span>
+          </div>
         </a>
-        
-        <a href="./de56/index.html" class="card">
-            <img src="./images/演習56.jpeg" alt="デザイン演習5・6" class="card-img">
-            <span class="card-title">デザイン演習Ⅴ・Ⅵ</span>
+
+        <a href="./de56/index.html" class="work-item">
+          <div class="work-number" aria-hidden="true">03</div>
+          <div class="photo-side">
+            <div class="photo-frame">
+              <img src="./images/演習56.jpeg" alt="デザイン演習5・6の作品" loading="lazy">
+            </div>
+          </div>
+          <div class="description-side">
+            <p class="work-index">NOTE NO. 03</p>
+            <h3>デザイン演習<span>5, 6</span></h3>
+            <p class="work-description">発想を深め、伝わるデザインを考える。</p>
+            <span class="work-link">VIEW NOTES <span aria-hidden="true">↗</span></span>
+          </div>
         </a>
-        
-        <a href="./digi_fab/index.html" class="card">
-            <img src="./images/digi.jpeg" alt="デジタルファブリケーション" class="card-img">
-            <span class="card-title">デジタル<br>ファブリケーション</span>
+
+        <a href="./digi_fab/index.html" class="work-item reverse">
+          <div class="work-number" aria-hidden="true">04</div>
+          <div class="photo-side">
+            <div class="photo-frame">
+              <img src="./images/digi.jpeg" alt="デジタルファブリケーションの作品" loading="lazy">
+            </div>
+          </div>
+          <div class="description-side">
+            <p class="work-index">NOTE NO. 04</p>
+            <h3>デジタル<br>ファブリケーション</h3>
+            <p class="work-description">デジタル技術を使い、アイデアを実物にする。</p>
+            <span class="work-link">VIEW NOTES <span aria-hidden="true">↗</span></span>
+          </div>
         </a>
-    </main>
+
+        <a href="./doyolab/index.html" class="work-item">
+          <div class="work-number" aria-hidden="true">05</div>
+          <div class="photo-side">
+            <div class="photo-frame">
+              <img src="./images/doyolab.jpeg" alt="道用ゼミでの制作" loading="lazy">
+            </div>
+          </div>
+          <div class="description-side">
+            <p class="work-index">NOTE NO. 05</p>
+            <h3>道用ゼミ</h3>
+            <p class="work-description">
+              Make, test, and talk.<br>
+              デザインと実験と対話のためのスタジオ。
+            </p>
+            <span class="work-link">VIEW NOTES <span aria-hidden="true">↗</span></span>
+          </div>
+        </a>
+
+        <a href="./other/index.html" class="work-item reverse">
+          <div class="work-number" aria-hidden="true">06</div>
+          <div class="photo-side">
+            <div class="photo-frame">
+              <img src="./images/other.jpeg" alt="その他の活動" loading="lazy">
+            </div>
+          </div>
+          <div class="description-side">
+            <p class="work-index">NOTE NO. 06</p>
+            <h3>other</h3>
+            <p class="work-description">そのほかの制作記録</p>
+            <span class="work-link">VIEW NOTES <span aria-hidden="true">↗</span></span>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a href="#top" class="back-to-top">
+      BACK TO TOP <span aria-hidden="true">↑</span>
+    </a>
+    <p class="copyright">©yuina's portfolio</p>
+  </footer>
+
+  <script>
+    const workItems = document.querySelectorAll(".work-item");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08 });
+
+      workItems.forEach((item) => observer.observe(item));
+    } else {
+      workItems.forEach((item) => item.classList.add("is-visible"));
+    }
+  </script>
 </body>
 </html>

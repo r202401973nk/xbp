@@ -1,24 +1,54 @@
+
 @charset "utf-8";
 
 /* ========== フォントの読み込み ========== */
-@import url('https://fonts.googleapis.com/css?family=Raleway:700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500;600;700&display=swap');
 
-/* ========== 全体（外側の背景） ========== */
+/* ========== 全体 ========== */
+:root {
+  --main-color: #343A38;
+  --main-dark: #171918;
+  --main-light: #858987;
+  --white: #F8F8F6;
+  --gray-light: #E8E9E8;
+  --gray-mid: #C9CCCA;
+  --pink: #FF84A8;
+  --pink-light: #FFE2EA;
+  --mint: #96E6D2;
+  --line-color: rgba(52, 58, 56, 0.18);
+
+  --font-jp: "Noto Sans JP", sans-serif;
+  --font-en: "DM Mono", monospace;
+}
+
 html, body {
   font-size: 16px;
-  font-family: sans-serif; 
-  background-color: #F4F4EF; /* 外側の背景（Paperカラー） */
-  color: #62534e;
+  font-family: var(--font-jp);
+  color: var(--main-color);
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
+  min-height: 100%;
   overflow-x: hidden;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white);
+  background-image: radial-gradient(
+    rgba(150, 230, 210, 0.45) 1px,
+    transparent 1px
+  );
+  background-size: 20px 20px;
+}
 
+/* ========== コンテンツ全体 ========== */
+.content-frame {
+  border: none;
+  background: transparent;
+}
 
-/* ========== 「HOME」ボタン ========== */
+/* ========== HOMEボタン ========== */
 .navbar {
   width: 100%;
 }
@@ -28,61 +58,71 @@ html, body {
   padding: 0;
   margin: 0 0 2em 0;
   display: flex;
-  justify-content: flex-start; /* 左寄せ */
+  justify-content: flex-start;
 }
 
 .navbar a.home-link {
   text-decoration: none;
-  color: #5B545C;
-  font-family: 'Raleway', sans-serif;
-  font-size: 0.95rem;
-  font-weight: bold;
+  color: var(--main-color);
+  font-family: var(--font-en);
+  font-size: 0.9rem;
+  font-weight: 500;
   padding: 10px 28px;
   border-radius: 40px;
-  background: #fff;
-  border: 2px solid #5B545C;
-  box-shadow: 4px 4px 0px #5B545C;
+  background: var(--white);
+  border: 1.5px solid var(--main-color);
+  box-shadow: 4px 4px 0 var(--main-color);
   transition: all 0.2s ease;
   display: inline-block;
 }
 
 .navbar a.home-link:hover {
   transform: translate(2px, 2px);
-  box-shadow: 2px 2px 0px #ffb71c;
-  border-color: #ffb71c;
-  color: #ffb71c;
+  box-shadow: 2px 2px 0 var(--pink);
+  border-color: var(--pink);
+  color: var(--pink);
 }
 
-/* ========== 見出し・文章のデザイン ========== */
+/* ========== 見出し ========== */
 h1 {
   position: relative;
-  color: #5B545C;
-  text-shadow: 0 0 2px #fff;
+  color: var(--main-dark);
+  font-size: 2rem;
+  font-weight: 700;
+  text-shadow: none;
+  margin-left: 1em;
 }
+
 h1:before {
   content: "";
   position: absolute;
-  background: #ffb71c75;
+  background: var(--mint);
   width: 50px;
   height: 50px;
   border-radius: 50%;
   top: 50%;
-  /* border: dashed 1px white; */
   left: -15px;
-  -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
   z-index: -1;
 }
 
 h2 {
   margin-left: 1em;
-  margin-top: 1em; 
+  margin-top: 1.5em;
+  color: var(--main-color);
+  font-size: 1.5rem;
+  font-weight: 700;
+  border-left: 5px solid var(--mint);
+  padding-left: 0.6em;
 }
 
 h3 {
   margin-left: 2em;
+  color: var(--main-color);
+  font-size: 1.2rem;
 }
 
+/* ========== 文章・コンテンツ ========== */
 div {
   margin-top: 1em;
   margin-left: 3em;
@@ -90,37 +130,45 @@ div {
 
 p {
   margin-left: 3em;
+  line-height: 1.9;
+  color: var(--main-color);
 }
 
-/* 画像の調整 */
+/* ========== 画像 ========== */
 .frame-image {
   margin-left: 3em;
   margin-top: 1em;
   display: block;
   max-width: 100%;
   height: auto;
+  border-radius: 8px;
 }
 
-/* リストの調整 */
+/* ========== リスト ========== */
 ul, ol {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
 
 ol {
-  margin-left: 4.5em; 
+  margin-left: 4.5em;
+  line-height: 1.9;
 }
 
 span.blackback {
-  text-indent: 3em; 
-  background: #62534e;
-  color: #ffff;
+  text-indent: 3em;
+  background: var(--main-color);
+  color: var(--white);
+  padding: 2px 6px;
 }
 
-/* 参考文献などのテキストリンク */
+/* ========== テキストリンク ========== */
 .content-frame a:not(.home-link) {
-  color: #0056b3; /* デフォルトの青より少し落ち着いた青色 */
+  color: var(--main-color);
   text-decoration: underline;
+  text-decoration-color: var(--mint);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
   margin-left: 3em;
   display: inline-block;
   margin-bottom: 0.5em;
@@ -128,10 +176,11 @@ span.blackback {
 }
 
 .content-frame a:not(.home-link):hover {
-  color: #ffb71c; /* リンクもホバーでマスタード色に！ */
+  color: var(--pink);
+  text-decoration-color: var(--pink);
 }
 
-/* ========== スマホ用の調整（画面が768px以下の時に発動） ========== */
+/* ========== スマホ用の調整 ========== */
 @media screen and (max-width: 768px) {
   .content-frame {
     padding: 2em 1.5em;
@@ -139,12 +188,26 @@ span.blackback {
     margin-top: 20px;
     border-radius: 24px;
   }
-  
-  h2 { margin-left: 0.5em; }
-  h3 { margin-left: 1em; }
-  div, p, .frame-image, .content-frame a:not(.home-link) {
-    margin-left: 1em; 
+
+  h1 {
+    font-size: 1.6rem;
+    margin-left: 0.5em;
   }
+
+  h2 {
+    margin-left: 0.5em;
+    font-size: 1.3rem;
+  }
+
+  h3 {
+    margin-left: 1em;
+  }
+
+  div, p, .frame-image,
+  .content-frame a:not(.home-link) {
+    margin-left: 1em;
+  }
+
   ol {
     margin-left: 2.5em;
   }

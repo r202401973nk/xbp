@@ -1,17 +1,32 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F6F5F1">
+
   <title>デザイン演習Ⅰ・Ⅱ | yuina's portfolio</title>
+
   <link rel="stylesheet" href="./css/style2.css">
   <link rel="shortcut icon" href="./images/xbp.ico">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
+
   <header class="header">
-    <!-- タイトル画像 -->
+
+    <!-- パンくずリスト -->
+    <nav class="breadcrumb" aria-label="パンくずリスト">
+      <a href="../index.html">HOME</a>
+      <span aria-hidden="true">/</span>
+      <span class="breadcrumb-current" aria-current="page">de12</span>
+    </nav>
+
+    <!-- ページタイトル -->
     <h1 class="page-title">
       <img
         src="./images/design-title.png"
@@ -20,41 +35,94 @@
       >
     </h1>
 
-    <nav class="navbar">
-      <ul>
-        <li><a href="../index.html">HOME</a></li>
-      </ul>
-    </nav>
   </header>
+
 
   <main class="subpage-container">
 
+    <!-- HTMLに関すること -->
     <section class="content-section">
-      <h2>HTMLに関すること</h2>
+
+      <div class="section-heading">
+        <p class="section-kicker">HTML</p>
+        <h2>HTMLに関すること</h2>
+      </div>
 
       <div class="text-card-list">
-        <a href="./hp1.html" class="text-card" target="_blank">htmlの基礎知識</a>
-        <a href="./hp2.html" class="text-card" target="_blank">htmlのwork</a>
-        <a href="./test.html" class="text-card" target="_blank">テストページ</a>
+
+        <a href="./hp1.html" class="text-card" target="_blank">
+          htmlの基礎知識
+        </a>
+
+        <a href="./hp2.html" class="text-card" target="_blank">
+          htmlのwork
+        </a>
+
+        <a href="./test.html" class="text-card" target="_blank">
+          テストページ
+        </a>
+
       </div>
+
     </section>
 
+
+    <!-- 演習ノート一覧 -->
     <section class="content-section">
-      <h2>演習ノート一覧</h2>
+
+      <div class="section-heading">
+        <p class="section-kicker">DESIGN &amp; PROCESS</p>
+        <h2>演習ノート一覧</h2>
+      </div>
 
       <div class="text-card-list">
-        <a href="./1.html" class="text-card" target="_blank">第１回</a>
-        <a href="./2.html" class="text-card" target="_blank">路上観察</a>
-        <a href="./files/detasciens.pdf" class="text-card" target="_blank">データサイエンス</a>
-        <a href="./3.html" class="text-card" target="_blank">pythonゲーム作成</a>
-        <a href="./4.html" class="text-card" target="_blank">可能性の模索</a>
-        <a href="./5.html" class="text-card" target="_blank">テキストマイニング</a>
-        <a href="./6.html" class="text-card" target="_blank">インタビュー</a>
-        <a href="./7.html" class="text-card" target="_blank">インタビュー共起ネットワーク</a>
-        <a href="./files/謎ウナギ.pdf" class="text-card" target="_blank">UPS</a>
+
+        <a href="./1.html" class="text-card" target="_blank">
+          git・htmlについて
+        </a>
+
+        <a href="./2.html" class="text-card" target="_blank">
+          路上観察
+        </a>
+
+        <a href="./files/detasciens.pdf" class="text-card" target="_blank">
+          データサイエンス
+        </a>
+
+        <a href="./3.html" class="text-card" target="_blank">
+          pythonゲーム作成
+        </a>
+
+        <a href="./4.html" class="text-card" target="_blank">
+          可能性の模索
+        </a>
+
+        <a href="./5.html" class="text-card" target="_blank">
+          テキストマイニング
+        </a>
+
+        <a href="./6.html" class="text-card" target="_blank">
+          インタビュー
+        </a>
+
+        <a href="./7.html" class="text-card" target="_blank">
+          インタビュー共起ネットワーク
+        </a>
+
+        <a href="./files/謎ウナギ.pdf" class="text-card" target="_blank">
+          UPS
+        </a>
+
       </div>
+
     </section>
 
   </main>
+
+
+  <footer class="footer">
+    <p class="copyright">©yuina's portfolio</p>
+  </footer>
+
 </body>
 </html>

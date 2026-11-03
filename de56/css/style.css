@@ -1,150 +1,113 @@
-
 @charset "utf-8";
 
-/* ========== フォントの読み込み ========== */
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500;600;700&display=swap');
+/* フォント */
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500;600;700&family=Noto+Serif+JP:wght@600;700;800&display=swap');
 
-/* ========== 全体 ========== */
+/* 全体 */
 :root {
-  --main-color: #343A38;
-  --main-dark: #171918;
-  --main-light: #858987;
-  --white: #F8F8F6;
-  --gray-light: #E8E9E8;
-  --gray-mid: #C9CCCA;
-  --pink: #FF84A8;
-  --pink-light: #FFE2EA;
-  --mint: #96E6D2;
-  --line-color: rgba(52, 58, 56, 0.18);
+  --bg: #F6F5F1;
+  --accent: #7E1D22;
+  --sub-accent: #D7B6AE;
+  --sub-color: #D8D4CC;
+  --text: #292725;
 
   --font-jp: "Noto Sans JP", sans-serif;
+  --font-serif: "Noto Serif JP", serif;
   --font-en: "DM Mono", monospace;
 }
 
 html, body {
-  font-size: 16px;
-  font-family: var(--font-jp);
-  color: var(--main-color);
   margin: 0;
   padding: 0;
   min-height: 100%;
+  font-family: var(--font-jp);
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text);
   overflow-x: hidden;
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  background-color: var(--white);
-  background-image: radial-gradient(
-    rgba(150, 230, 210, 0.45) 1px,
-    transparent 1px
-  );
-  background-size: 20px 20px;
+  background-color: var(--bg);
 }
 
-/* ========== コンテンツ全体 ========== */
+/* コンテンツ全体 */
 .content-frame {
-  border: none;
-  background: transparent;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3em 5%;
 }
 
-/* ========== HOMEボタン ========== */
-.navbar {
-  width: 100%;
-}
-
-.navbar ul {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 2em 0;
+/* パンくずリスト */
+.breadcrumb {
   display: flex;
-  justify-content: flex-start;
-}
-
-.navbar a.home-link {
-  text-decoration: none;
-  color: var(--main-color);
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.7em;
+  margin-bottom: 2.5em;
   font-family: var(--font-en);
-  font-size: 0.9rem;
-  font-weight: 500;
-  padding: 10px 28px;
-  border-radius: 40px;
-  background: var(--white);
-  border: 1.5px solid var(--main-color);
-  box-shadow: 4px 4px 0 var(--main-color);
-  transition: all 0.2s ease;
-  display: inline-block;
+  font-size: 0.78rem;
+  color: #858078;
 }
 
-.navbar a.home-link:hover {
-  transform: translate(2px, 2px);
-  box-shadow: 2px 2px 0 var(--pink);
-  border-color: var(--pink);
-  color: var(--pink);
+.breadcrumb a {
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
-/* ========== 見出し ========== */
+.breadcrumb a:hover {
+  color: var(--accent);
+}
+
+.breadcrumb span[aria-current="page"] {
+  color: var(--accent);
+  font-family: var(--font-jp);
+}
+
+/* 大見出し */
 h1 {
-  position: relative;
-  color: var(--main-dark);
+  display: table;
+  margin: 0 0 1.5em 0.4em;
+  padding-bottom: 0.35em;
+  color: var(--text);
+  font-family: var(--font-serif);
   font-size: 2rem;
   font-weight: 700;
-  text-shadow: none;
-  margin-left: 1em;
+  line-height: 1.5;
+  border-bottom: 2px solid var(--accent);
 }
 
-h1:before {
-  content: "";
-  position: absolute;
-  background: var(--mint);
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  top: 50%;
-  left: -15px;
-  transform: translateY(-50%);
-  z-index: -1;
+h1::before,
+h1::after {
+  content: none;
 }
 
+/* 中見出し */
 h2 {
-  margin-left: 1em;
-  margin-top: 1.5em;
-  color: var(--main-color);
+  margin: 2.5em 0 1.2em 1em;
+  padding: 0.1em 0 0.1em 0.7em;
+  border-left: 4px solid var(--accent);
+  color: var(--text);
   font-size: 1.5rem;
   font-weight: 700;
-  border-left: 5px solid var(--mint);
-  padding-left: 0.6em;
 }
 
+/* 小見出し */
 h3 {
-  margin-left: 2em;
-  color: var(--main-color);
-  font-size: 1.2rem;
+  margin: 1.8em 0 0.7em 2em;
+  color: var(--accent);
+  font-size: 1.15rem;
+  font-weight: 600;
 }
 
-/* ========== 文章・コンテンツ ========== */
-div {
-  margin-top: 1em;
-  margin-left: 3em;
-}
-
-p {
-  margin-left: 3em;
+/* 文章 */
+.content-frame > div:not(.breadcrumb) {
+  margin: 0.8em 0 1em 3em;
   line-height: 1.9;
-  color: var(--main-color);
 }
 
-/* ========== 画像 ========== */
-.frame-image {
-  margin-left: 3em;
-  margin-top: 1em;
-  display: block;
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
-
-/* ========== リスト ========== */
+/* リスト */
 ul, ol {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
@@ -155,60 +118,72 @@ ol {
   line-height: 1.9;
 }
 
-span.blackback {
-  text-indent: 3em;
-  background: var(--main-color);
-  color: var(--white);
-  padding: 2px 6px;
+/* 画像 */
+.frame-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1em 0 1em 3em;
+  border-radius: 4px;
 }
 
-/* ========== テキストリンク ========== */
-.content-frame a:not(.home-link) {
-  color: var(--main-color);
+/* テキストリンク */
+.content-frame > a {
+  display: inline-block;
+  margin: 0.2em 0 0.5em 3em;
+  color: var(--text);
   text-decoration: underline;
-  text-decoration-color: var(--mint);
+  text-decoration-color: var(--sub-accent);
   text-decoration-thickness: 2px;
   text-underline-offset: 4px;
-  margin-left: 3em;
-  display: inline-block;
-  margin-bottom: 0.5em;
-  transition: 0.2s;
+  transition: color 0.2s ease;
 }
 
-.content-frame a:not(.home-link):hover {
-  color: var(--pink);
-  text-decoration-color: var(--pink);
+.content-frame > a:hover {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
 }
 
-/* ========== スマホ用の調整 ========== */
+/* スマートフォン */
 @media screen and (max-width: 768px) {
   .content-frame {
     padding: 2em 1.5em;
-    width: 94%;
-    margin-top: 20px;
-    border-radius: 24px;
+  }
+
+  .breadcrumb {
+    gap: 0.45em;
+    margin-bottom: 2em;
+    font-size: 0.7rem;
   }
 
   h1 {
-    font-size: 1.6rem;
-    margin-left: 0.5em;
+    margin-left: 0;
+    font-size: 1.5rem;
   }
 
   h2 {
-    margin-left: 0.5em;
+    margin-left: 0.3em;
     font-size: 1.3rem;
   }
 
   h3 {
-    margin-left: 1em;
+    margin-left: 0.8em;
+    font-size: 1.05rem;
   }
 
-  div, p, .frame-image,
-  .content-frame a:not(.home-link) {
-    margin-left: 1em;
+  .content-frame > div:not(.breadcrumb) {
+    margin-left: 0.8em;
+  }
+
+  .frame-image {
+    margin-left: 0.8em;
   }
 
   ol {
-    margin-left: 2.5em;
+    margin-left: 2em;
+  }
+
+  .content-frame > a {
+    margin-left: 0.8em;
   }
 }

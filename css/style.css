@@ -1,18 +1,18 @@
-
 /* =========================
    01. COLOR & BASIC
 ========================= */
 
 :root {
-  --main-color: #343A38;
-  --main-light: #858987;
-  --white: #F8F8F6;
-  --pink: #FF84A8;
-  --pink-light: #FFE2EA;
-  --line-color: rgba(52, 58, 56, 0.18);
+  --main-bg: #F6F5F1;
+  --main-color: #7E1D22;
+  --sub-color: #D7B6AE;
+  --sub-bg: #D8D4CC;
+  --text-color: #292725;
+  --line-color: rgba(41, 39, 37, 0.2);
 
   --font-jp: "Noto Sans JP", sans-serif;
   --font-en: "DM Mono", monospace;
+  --font-number: "Noto Serif JP", serif;
 }
 
 * {
@@ -26,13 +26,8 @@ html {
 
 body {
   margin: 0;
-  color: var(--main-color);
-  background-color: var(--white);
-  background-image: radial-gradient(
-    rgba(150, 230, 210, 0.45) 1px,
-    transparent 1px
-  );
-  background-size: 20px 20px;
+  color: var(--text-color);
+  background: var(--main-bg);
   font-family: var(--font-jp);
   letter-spacing: 0.015em;
   overflow-x: hidden;
@@ -49,12 +44,12 @@ img {
 }
 
 ::selection {
-  color: var(--main-color);
-  background: var(--pink-light);
+  color: var(--main-bg);
+  background: var(--main-color);
 }
 
 :focus-visible {
-  outline: 2px solid var(--pink);
+  outline: 2px solid var(--main-color);
   outline-offset: 5px;
 }
 
@@ -67,9 +62,8 @@ img {
   position: relative;
   display: flex;
   flex-direction: column;
-  height: 100svh;
-  min-height: 700px;
-  max-height: 950px;
+  min-height: 100svh;
+  max-height: 900px;
   padding: 24px 7% 0;
   overflow: hidden;
 }
@@ -78,7 +72,7 @@ img {
 
 .top-nav {
   position: relative;
-  z-index: 3;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -93,7 +87,7 @@ img {
 }
 
 .nav-logo:hover {
-  color: #E97898;
+  color: var(--sub-color);
 }
 
 .nav-explore {
@@ -101,63 +95,50 @@ img {
   align-items: center;
   gap: 12px;
   padding: 10px 15px;
-  border: 1px solid rgba(52, 58, 56, 0.4);
+  border: 1px solid var(--line-color);
   border-radius: 30px;
   transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 .nav-explore span {
-  color: var(--pink);
+  color: var(--main-color);
   font-size: 15px;
   transition: transform 0.3s ease;
 }
 
 .nav-explore:hover {
-  color: var(--main-color);
-  background: var(--pink-light);
-  border-color: var(--pink);
+  color: var(--main-bg);
+  background: var(--main-color);
+  border-color: var(--main-color);
 }
 
 .nav-explore:hover span {
+  color: var(--main-bg);
   transform: translate(3px, 3px);
 }
 
-/* ファーストビュー内部 */
+
+/* ファーストビュー画像 */
 
 .hero-inner {
-  position: relative;
-  z-index: 1;
-  width: min(100%, 1000px);
+  display: flex;
   flex: 1;
-  min-height: 520px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 0;
+  max-width: 1250px;
   margin: 0 auto;
 }
 
-/* 猫のイラスト */
-
 .cat-illustration {
-  position: absolute;
-  top: 15%;
-  left: 2%;
-  width: 110%;
-  max-width: 1100px;
+  width: 100%;
+  max-width: 1250px;
   height: auto;
+  max-height: calc(100svh - 190px);
   object-fit: contain;
 }
 
-/* サイドテキスト */
-
-.hero-side-note {
-  position: absolute;
-  right: 0;
-  bottom: 14%;
-  margin: 0;
-  color: var(--main-light);
-  font-family: var(--font-en);
-  font-size: 9px;
-  letter-spacing: 0.14em;
-  writing-mode: vertical-rl;
-}
 
 /* スクロール誘導 */
 
@@ -169,7 +150,7 @@ img {
   display: flex;
   align-items: center;
   gap: 12px;
-  color: var(--main-light);
+  color: var(--text-color);
   font-family: var(--font-en);
   font-size: 9px;
   letter-spacing: 0.1em;
@@ -179,7 +160,7 @@ img {
   width: 45px;
   height: 1px;
   overflow: hidden;
-  background: rgba(52, 58, 56, 0.25);
+  background: var(--line-color);
 }
 
 .scroll-line::after {
@@ -187,12 +168,12 @@ img {
   display: block;
   width: 100%;
   height: 100%;
-  background: var(--pink);
+  background: var(--main-color);
   animation: scroll-line 2s ease-in-out infinite;
 }
 
 .scroll-arrow {
-  color: var(--pink);
+  color: var(--main-color);
   font-size: 15px;
   transition: transform 0.3s ease;
 }
@@ -201,24 +182,24 @@ img {
   transform: translateY(4px);
 }
 
+
 /* ファーストビュー下端 */
 
 .hero-bottom {
   position: relative;
-  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
   min-height: 45px;
   border-top: 1px solid var(--line-color);
-  color: var(--main-light);
+  color: var(--text-color);
   font-family: var(--font-en);
   font-size: 9px;
   letter-spacing: 0.1em;
 }
 
 .hero-bottom-center {
-  color: var(--pink);
+  color: var(--main-color);
   font-size: 17px;
 }
 
@@ -230,7 +211,6 @@ img {
 .works-section {
   position: relative;
   padding: 65px 7% 75px;
-  overflow: hidden;
 }
 
 .section-heading {
@@ -245,7 +225,7 @@ img {
 
 .section-kicker {
   margin: 0 0 13px;
-  color: var(--main-light);
+  color: var(--main-color);
   font-family: var(--font-en);
   font-size: 9px;
   letter-spacing: 0.13em;
@@ -254,19 +234,19 @@ img {
 
 .section-heading h2 {
   margin: 0;
-  color: var(--main-color);
+  color: var(--text-color);
   font-size: clamp(28px, 4vw, 42px);
   font-weight: 700;
   letter-spacing: 0.02em;
 }
 
 .section-heading h2 span {
-  color: var(--pink);
+  color: var(--main-color);
 }
 
 .section-intro {
   margin: 0 0 4px;
-  color: var(--main-light);
+  color: var(--text-color);
   font-size: 12px;
   line-height: 2.1;
   letter-spacing: 0.04em;
@@ -305,6 +285,7 @@ img {
   margin-bottom: 0;
 }
 
+
 /* 左右交互 */
 
 .work-item.reverse {
@@ -319,6 +300,7 @@ img {
   order: 1;
 }
 
+
 /* 大きな番号 */
 
 .work-number {
@@ -326,12 +308,12 @@ img {
   z-index: -1;
   top: -0.45em;
   left: -0.06em;
-  color: rgba(52, 58, 56, 0.08);
-  font-family: var(--font-en);
+  color: rgba(126, 29, 34, 0.13);
+  font-family: var(--font-number);
   font-size: clamp(90px, 12vw, 155px);
-  font-weight: 400;
+  font-weight: 800;
   line-height: 1;
-  letter-spacing: -0.1em;
+  letter-spacing: -0.08em;
   pointer-events: none;
   transition: color 0.4s ease, transform 0.5s ease;
 }
@@ -340,6 +322,7 @@ img {
   right: -2%;
   left: auto;
 }
+
 
 /* 作品画像 */
 
@@ -353,7 +336,7 @@ img {
   position: relative;
   width: 100%;
   aspect-ratio: 1.4 / 1;
-  overflow: visible;
+  overflow: hidden;
   transition: transform 0.4s ease;
 }
 
@@ -363,6 +346,7 @@ img {
   object-fit: contain;
   transition: transform 0.5s ease;
 }
+
 
 /* 作品情報 */
 
@@ -375,7 +359,7 @@ img {
 
 .work-index {
   margin: 0 0 12px;
-  color: #E97898;
+  color: var(--main-color);
   font-family: var(--font-en);
   font-size: 9px;
   letter-spacing: 0.12em;
@@ -383,7 +367,7 @@ img {
 
 .description-side h3 {
   margin: 0;
-  color: var(--main-color);
+  color: var(--text-color);
   font-family: var(--font-jp);
   font-size: clamp(19px, 2.2vw, 27px);
   font-weight: 700;
@@ -393,17 +377,18 @@ img {
 }
 
 .description-side h3 span {
-  color: #E97898;
+  color: var(--main-color);
 }
 
 .work-description {
   max-width: 310px;
   margin: 14px 0 20px;
-  color: var(--main-light);
+  color: var(--text-color);
   font-size: 12px;
   line-height: 1.9;
   letter-spacing: 0.025em;
 }
+
 
 /* リンク */
 
@@ -412,8 +397,8 @@ img {
   align-items: center;
   gap: 15px;
   padding-bottom: 7px;
-  border-bottom: 1px solid rgba(52, 58, 56, 0.5);
-  color: var(--main-color);
+  border-bottom: 1px solid var(--line-color);
+  color: var(--text-color);
   font-family: var(--font-en);
   font-size: 9px;
   letter-spacing: 0.1em;
@@ -421,10 +406,11 @@ img {
 }
 
 .work-link > span {
-  color: var(--pink);
+  color: var(--main-color);
   font-size: 16px;
   transition: transform 0.3s ease;
 }
+
 
 /* ホバー */
 
@@ -437,17 +423,17 @@ img {
 }
 
 .work-item:hover .work-number {
-  color: rgba(255, 132, 168, 0.25);
+  color: rgba(126, 29, 34, 0.25);
   transform: translateX(8px);
 }
 
 .work-item:hover .description-side h3,
 .work-item:hover .work-link {
-  color: #E97898;
+  color: var(--main-color);
 }
 
 .work-item:hover .work-link {
-  border-color: var(--pink);
+  border-color: var(--main-color);
 }
 
 .work-item:hover .work-link > span {
@@ -470,7 +456,7 @@ img {
   align-items: center;
   gap: 14px;
   padding: 10px 16px;
-  border: 1px solid rgba(52, 58, 56, 0.4);
+  border: 1px solid var(--line-color);
   border-radius: 30px;
   font-family: var(--font-en);
   font-size: 9px;
@@ -479,24 +465,29 @@ img {
 }
 
 .back-to-top span {
-  color: var(--pink);
+  color: var(--main-color);
   font-size: 15px;
 }
 
 .back-to-top:hover {
-  color: var(--main-color);
-  background: var(--pink-light);
-  border-color: var(--pink);
+  color: var(--main-bg);
+  background: var(--main-color);
+  border-color: var(--main-color);
+}
+
+.back-to-top:hover span {
+  color: var(--main-bg);
 }
 
 .copyright {
   margin: 0;
   padding-top: 18px;
-  color: #B5B9B7;
+  color: var(--sub-color);
   font-family: var(--font-en);
   font-size: 7px;
   letter-spacing: 0.12em;
 }
+
 
 /* =========================
    06. ANIMATION
@@ -518,28 +509,23 @@ img {
 ========================= */
 
 @media (max-width: 760px) {
+
   .hero {
-    min-height: 650px;
+    min-height: 100svh;
     padding-right: 6%;
     padding-left: 6%;
   }
 
   .hero-inner {
-    min-height: 500px;
+    max-width: none;
   }
 
   .cat-illustration {
-    top: 27%;
-    left: 50%;
-    width: 125%;
-    max-width: none;
-    transform: translateX(-50%);
+    width: 100%;
   }
 
-  .hero-side-note {
-    right: 1%;
-    bottom: 13%;
-    font-size: 8px;
+  .scroll-cue {
+    right: 6%;
   }
 
   .works-section {
@@ -584,17 +570,19 @@ img {
 ========================= */
 
 @media (max-width: 520px) {
+
+  /* ファーストビュー */
+
   .hero {
-    min-height: 620px;
-    max-height: 780px;
-    padding: 20px 6% 0;
+    min-height: auto;
+    max-height: none;
+    padding: 18px 6% 0;
   }
 
-  .hero-inner {
-    min-height: 470px;
+  .top-nav {
+    font-size: 9px;
   }
 
-  .top-nav,
   .nav-logo {
     font-size: 9px;
   }
@@ -604,25 +592,28 @@ img {
     padding: 8px 12px;
   }
 
-  .cat-illustration {
-    top: 48%;
-    left: 50%;
-    width: 112%;
-    max-width: none;
-    max-height: 88%;
-    transform: translate(-50%, -50%);
+  /* 画像を横長のヘッダーとして表示 */
+
+  .hero-inner {
+    flex: none;
+    width: calc(100% + 12%);
+    margin: 22px -6% 0;
   }
 
-  .hero-side-note {
-    right: 0;
-    bottom: 12%;
-    font-size: 7px;
+  .cat-illustration {
+    width: 100%;
+    max-width: none;
+    max-height: none;
+    height: auto;
   }
+
+  /* スクロール誘導 */
 
   .scroll-cue {
-    right: 6%;
-    bottom: 58px;
+    position: static;
+    align-self: flex-end;
     gap: 8px;
+    margin: 17px 0 18px;
     font-size: 8px;
   }
 
@@ -731,18 +722,16 @@ img {
 ========================= */
 
 @media (max-width: 360px) {
-  .hero {
-    min-height: 580px;
-  }
-
-  .cat-illustration {
-    width: 115%;
-  }
 
   .works-section {
     padding-right: 18px;
     padding-left: 18px;
   }
+
+  .hero-bottom {
+    font-size: 7px;
+  }
+
 }
 
 
@@ -751,6 +740,7 @@ img {
 ========================= */
 
 @media (prefers-reduced-motion: reduce) {
+
   html {
     scroll-behavior: auto;
   }
@@ -766,4 +756,5 @@ img {
     opacity: 1;
     transform: none;
   }
+
 }

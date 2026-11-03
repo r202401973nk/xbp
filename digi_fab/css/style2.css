@@ -1,54 +1,110 @@
-
 @charset "utf-8";
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500;600;700&display=swap');
-
-/* ========== カラー・基本設定 ========== */
+/* =========================
+   01. COLOR & BASIC
+========================= */
 
 :root {
-  --color-bg: #F7F7F4;
-  --color-text: #292D2B;
-  --color-sub: #858D88;
-  --color-mint: #BDE8D8;
-  --color-pink: #FF75B8;
-  --color-white: #FFFFFF;
+  --main-bg: #F6F5F1;
+  --main-color: #7E1D22;
+  --sub-color: #D7B6AE;
+  --sub-bg: #D8D4CC;
+  --text-color: #292725;
+  --line-color: rgba(41, 39, 37, 0.18);
+  --white: #FFFFFF;
 
-  --font-jp: 'Noto Sans JP', sans-serif;
-  --font-en: 'DM Mono', monospace;
+  --font-jp: "Noto Sans JP", sans-serif;
+  --font-en: "DM Mono", monospace;
 }
 
 * {
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
+  min-height: 100vh;
   margin: 0;
   padding: 0;
-  min-height: 100vh;
   overflow-x: hidden;
 
+  color: var(--text-color);
+  background: var(--main-bg);
   font-family: var(--font-jp);
-  color: var(--color-text);
-  background-color: #F8F8F6;
-
-  /* トップページと同じドット柄 */
-  background-image: radial-gradient(
-    rgba(150, 230, 210, 0.45) 1px,
-    transparent 1px
-  );
-  background-size: 20px 20px;
-
+  letter-spacing: 0.015em;
   text-align: center;
 }
-/* ========== ヘッダー ========== */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+::selection {
+  color: var(--main-bg);
+  background: var(--main-color);
+}
+
+:focus-visible {
+  outline: 2px solid var(--main-color);
+  outline-offset: 5px;
+}
+
+
+/* =========================
+   02. HEADER
+========================= */
 
 .header {
   position: relative;
-  z-index: 1;
-  padding: 75px 20px 35px;
+  padding: 25px 7% 35px;
 }
 
-/* タイトル画像 */
+/* パンくずリスト */
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto 35px;
+
+  color: var(--text-color);
+  font-family: var(--font-en);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+}
+
+.breadcrumb a {
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+  color: var(--main-color);
+}
+
+.breadcrumb > span:nth-child(2) {
+  color: var(--sub-color);
+}
+
+.breadcrumb-current {
+  color: var(--main-color);
+}
+
+
+/* ページタイトル */
 
 .page-title {
   margin: 0;
@@ -61,43 +117,14 @@ body {
   margin: 0 auto;
 }
 
-/* ========== ナビゲーション ========== */
 
-.navbar ul {
-  display: flex;
-  justify-content: center;
-  list-style: none;
-  padding: 0;
-  margin: 35px 0 0;
-}
-
-.navbar a {
-  display: inline-block;
-  padding: 9px 25px;
-
-  color: var(--color-text);
-  background: var(--color-white);
-  border: 1px solid #D9DFDB;
-  border-radius: 30px;
-
-  font-family: var(--font-en);
-  font-size: 12px;
-  letter-spacing: 0.12em;
-  text-decoration: none;
-
-  transition: 0.25s ease;
-}
-
-.navbar a:hover {
-  background: var(--color-mint);
-  border-color: var(--color-mint);
-  transform: translateY(-3px);
-}
-
-/* ========== コンテンツ全体 ========== */
+/* =========================
+   03. CONTENT
+========================= */
 
 .subpage-container {
-  margin: 35px auto 100px;
+  width: 100%;
+  margin: 25px auto 100px;
   padding: 0 20px;
 }
 
@@ -105,28 +132,39 @@ body {
   margin-bottom: 75px;
 }
 
-/* ========== セクションタイトル ========== */
 
-h2 {
+/* セクションタイトル */
+
+.section-heading {
+  margin-bottom: 35px;
+}
+
+.section-kicker {
+  margin: 0 0 10px;
+
+  color: var(--main-color);
+  font-family: var(--font-en);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+}
+
+.section-heading h2 {
   display: table;
-  margin: 0 auto 30px;
+  margin: 0 auto;
   padding: 0 8px 10px;
 
-  color: var(--color-text);
+  color: var(--text-color);
   font-size: 20px;
   font-weight: 600;
   letter-spacing: 0.12em;
 
-  border-bottom: 2px solid var(--color-mint);
+  border-bottom: 2px solid var(--sub-color);
 }
 
-/* 2つ目の見出しにピンクのアクセント */
 
-.content-section:nth-child(2) h2 {
-  border-bottom-color: var(--color-pink);
-}
-
-/* ========== カード一覧 ========== */
+/* =========================
+   04. CARD LIST
+========================= */
 
 .text-card-list {
   display: flex;
@@ -139,52 +177,209 @@ h2 {
 }
 
 .text-card {
-  display: block;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 60px;
   padding: 18px 22px;
 
-  color: var(--color-text);
-  background: rgba(255, 255, 255, 0.85);
-  border: 1px solid #E0E5E1;
+  color: var(--text-color);
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid var(--line-color);
   border-radius: 8px;
 
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.04em;
-  text-decoration: none;
+  line-height: 1.7;
 
-  box-shadow: 3px 3px 0 rgba(189, 232, 216, 0.65);
-  transition: 0.25s ease;
+  box-shadow: 3px 3px 0 var(--sub-bg);
+
+  transition:
+    color 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
 }
 
-.text-card:hover {
-  color: var(--color-text);
-  background: #FFFFFF;
-  border-color: var(--color-pink);
-  box-shadow: 4px 4px 0 var(--color-pink);
+
+/* 通常カードのホバー */
+
+.text-card:not(.text-card-featured):hover {
+  color: var(--main-color);
+  background: var(--white);
+  border-color: var(--sub-color);
+  box-shadow: 4px 4px 0 var(--sub-color);
   transform: translate(-2px, -2px);
 }
 
-/* ========== スマートフォン対応 ========== */
+
+/* =========================
+   05. FEATURED CARD
+   特別に目立たせるカード
+========================= */
+
+.text-card-featured {
+  min-height: 80px;
+  margin-top: 15px;
+  padding: 20px 45px;
+
+  color: var(--main-bg);
+  background: var(--main-color);
+  border: 1px solid var(--main-color);
+
+  box-shadow: 4px 4px 0 var(--sub-color);
+}
+
+/* 特別カードのタイトル */
+
+.featured-title {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+/* 特別カードの矢印 */
+
+.featured-arrow {
+  position: absolute;
+  top: 50%;
+  right: 18px;
+
+  color: var(--sub-color);
+  font-family: var(--font-en);
+  font-size: 19px;
+
+  transform: translateY(-50%);
+  transition: transform 0.25s ease;
+}
+
+/* 特別カードのホバー */
+
+.text-card-featured:hover {
+  color: var(--main-bg);
+  background: #642026;
+  border-color: #642026;
+  box-shadow: 5px 5px 0 var(--sub-color);
+  transform: translate(-2px, -2px);
+}
+
+.text-card-featured:hover .featured-arrow {
+  transform: translate(3px, -50%);
+}
+
+
+/* =========================
+   06. FOOTER
+========================= */
+
+.footer {
+  padding: 30px 7% 22px;
+  border-top: 1px solid var(--line-color);
+  text-align: center;
+}
+
+.copyright {
+  margin: 0;
+
+  color: var(--sub-color);
+  font-family: var(--font-en);
+  font-size: 7px;
+  letter-spacing: 0.12em;
+}
+
+
+/* =========================
+   07. MOBILE
+========================= */
 
 @media (max-width: 600px) {
+
   .header {
-    padding-top: 55px;
+    padding: 18px 6% 25px;
+  }
+
+  .breadcrumb {
+    gap: 9px;
+    margin-bottom: 25px;
+    font-size: 9px;
+  }
+
+  .title-image {
+    width: min(560px, 90vw);
   }
 
   .subpage-container {
-    margin-top: 25px;
+    margin: 20px auto 65px;
+    padding: 0 22px;
   }
 
-  h2 {
+  .section-heading {
+    margin-bottom: 28px;
+  }
+
+  .section-kicker {
+    font-size: 8px;
+  }
+
+  .section-heading h2 {
     font-size: 17px;
   }
 
+  .text-card-list {
+    gap: 13px;
+  }
+
   .text-card {
-    padding: 16px;
+    min-height: 56px;
+    padding: 15px 16px;
     font-size: 13px;
   }
 
-  .content-section {
-    margin-bottom: 60px;
+  .text-card-featured {
+    min-height: 75px;
+    margin-top: 12px;
+    padding: 18px 40px 18px 20px;
   }
+
+  .featured-title {
+    font-size: 13px;
+  }
+
+  .featured-arrow {
+    right: 13px;
+    font-size: 16px;
+  }
+
+  .content-section {
+    margin-bottom: 55px;
+  }
+
+  .footer {
+    padding: 25px 6% 20px;
+  }
+
+}
+
+
+/* =========================
+   08. ACCESSIBILITY
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
 }

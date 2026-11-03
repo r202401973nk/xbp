@@ -1,58 +1,86 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <title>yuinaのHP</title>
-    <link rel="stylesheet" href="./css/style2.css">
-    <link rel="shortcut icon" href="./images/xbp.ico">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F6F5F1">
+
+  <title>デジタルファブリケーション | yuina's portfolio</title>
+
+  <link rel="stylesheet" href="./css/style2.css">
+  <link rel="shortcut icon" href="./images/xbp.ico">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-    <header>
-        <h1 class="page-title">
-            <img
-                src="./images/digital-fabrication-title.png"
-                alt="デジタルファブリケーション"
-                class="title-image"
-            >
-        </h1>
+  <header class="header">
 
-        <nav class="navbar">
-            <ul>
-                <li><a href="../index.html">HOME</a></li>
-            </ul>
-        </nav>
-    </header>
+    <!-- パンくずリスト -->
+    <nav class="breadcrumb" aria-label="パンくずリスト">
+      <a href="../index.html">HOME</a>
+      <span aria-hidden="true">/</span>
+      <span class="breadcrumb-current" aria-current="page">digifab</span>
+    </nav>
 
-    <div class="subpage-container">
+    <!-- ページタイトル -->
+    <h1 class="page-title">
+      <img
+        src="./images/digital-fabrication-title.png"
+        alt="デジタルファブリケーション"
+        class="title-image"
+      >
+    </h1>
 
-        <section class="content-section">
-            <h2>演習ノート一覧</h2>
+  </header>
 
-            <div class="text-card-list">
-                <a href="./1.html" class="text-card" target="_blank">
-                    3DPrinting
-                </a>
 
-                <a href="./2.html" class="text-card" target="_blank">
-                    Computer-controlled Cutting
-                </a>
+  <main class="subpage-container">
 
-                <a href="./3.html" class="text-card" target="_blank">
-                    観察課題
-                </a>
+    <section class="content-section">
 
-                <a href="./4.html" class="text-card" target="_blank">
-                    Design for Others
-                </a>
+      <div class="section-heading">
+        <p class="section-kicker">DIGITAL FABRICATION</p>
+        <h2>演習ノート一覧</h2>
+      </div>
 
-                <a href="./5.html" class="text-card text-card-featured" target="_blank">
-                    最終課題
-                </a>
-            </div>
-        </section>
+      <div class="text-card-list">
 
-    </div>
+        <a href="./1.html" class="text-card" target="_blank">
+          3DPrinting
+        </a>
+
+        <a href="./2.html" class="text-card" target="_blank">
+          Computer-controlled Cutting
+        </a>
+
+        <a href="./3.html" class="text-card" target="_blank">
+          観察課題
+        </a>
+
+        <a href="./4.html" class="text-card" target="_blank">
+          Design for Others
+        </a>
+
+        <!-- 特別に目立たせるカード -->
+        <a href="./5.html" class="text-card text-card-featured" target="_blank">
+          <span class="featured-title">最終課題</span>
+          <span class="featured-arrow" aria-hidden="true">↗</span>
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer class="footer">
+    <p class="copyright">©yuina's portfolio</p>
+  </footer>
 
 </body>
 </html>

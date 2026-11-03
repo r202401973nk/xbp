@@ -2,17 +2,21 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>テストページ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>テストページ</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
     <div class="content-frame">
-        
-        <nav class="navbar main-nav">
-            <ul>
-                <li><a href="./index.html" class="home-link">back</a></li>
-            </ul>
+
+        <nav class="breadcrumb" aria-label="パンくずリスト">
+            <a href="../index.html">HOME</a>
+            <span>/</span>
+            <a href="./index.html">de12</a>
+            <span>/</span>
+            <span aria-current="page">テストページ</span>
         </nav>
+
     <h1>第１回 </h1>
     
     <!-- 塊ごとにdivタグで区切るようにしましょう。 -->
@@ -21,9 +25,9 @@
           あああ<br>
           こんにちは<br>
          <!-- ②↓に画像（imagesフォルダにあるtest.png）を挿入してみよう -->
-          <img src="./images/testimage.png"width="30%"><br>
-          <img src="./images/testimage.png"width="40%"><br>
-          <img src="../images/0_XBlogo.png"width="30%"><br>
+          <img src="./images/testimage.png"width="30%" class="frame-image"><br>
+          <img src="./images/testimage.png"width="40%" class="frame-image"><br>
+          <img src="../images/0_XBlogo.png"width="30%" class="frame-image"><br>
          <!-- ③↓に箇条書きをしてみよう -->
           <ol>
             <li>えびフライ</li>

@@ -128,9 +128,7 @@ ol {
 }
 
 /* テキストリンク */
-.content-frame > a {
-  display: inline-block;
-  margin: 0.2em 0 0.5em 3em;
+.content-frame a:not(.breadcrumb a) {
   color: var(--text);
   text-decoration: underline;
   text-decoration-color: var(--sub-accent);
@@ -139,7 +137,7 @@ ol {
   transition: color 0.2s ease;
 }
 
-.content-frame > a:hover {
+.content-frame a:not(.breadcrumb a):hover {
   color: var(--accent);
   text-decoration-color: var(--accent);
 }

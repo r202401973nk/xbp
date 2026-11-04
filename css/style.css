@@ -758,3 +758,214 @@ img {
   }
 
 }
+
+/* =========================
+   11. RELATED CONTENT
+========================= */
+
+.related-section {
+  width: min(100% - 14%, 880px);
+  margin: 100px auto 0;
+  padding-bottom: 95px;
+}
+
+/* ✳ と MORE ABOUT */
+.related-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.related-heading .hero-bottom-center {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 17px;
+  line-height: 1;
+  color: var(--main-color);
+}
+
+.related-kicker {
+  margin: 0;
+  color: var(--main-color);
+  font-family: var(--font-en);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+}
+
+/* 円形リンク */
+.related-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 55px;
+  max-width: 650px;
+  margin: 38px auto 0;
+}
+
+.related-link {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  min-width: 0;
+}
+
+.related-image {
+  flex: 0 0 112px;
+  width: 112px;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 50%;
+  background: var(--sub-bg);
+}
+
+.related-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.related-copy {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  padding-right: 18px;
+}
+
+.related-index {
+  margin: 0 0 9px;
+  color: var(--main-color);
+  font-family: var(--font-en);
+  font-size: 8px;
+  letter-spacing: 0.1em;
+}
+
+.related-copy h3 {
+  margin: 0;
+  font-size: clamp(13px, 1.5vw, 16px);
+  font-weight: 600;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.related-arrow {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  color: var(--main-color);
+  font-size: 15px;
+}
+
+/* =========================
+   12. MAKING PROCESS
+========================= */
+
+.process-section {
+  margin-top: 100px;
+  margin-bottom: 15px;
+}
+
+.process-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 13px;
+  width: min(100%, 620px);
+  margin: 0 auto;
+}
+
+.process-item {
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  overflow: hidden;
+}
+
+.process-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* =========================
+   13. RESPONSIVE
+========================= */
+
+@media (max-width: 760px) {
+  .related-section {
+    width: 88%;
+    margin-top: 80px;
+    padding-bottom: 75px;
+  }
+
+  .related-heading .hero-bottom-center {
+    margin-bottom: 30px;
+  }
+
+  .related-links {
+    gap: 25px;
+    margin-top: 32px;
+  }
+
+  .related-image {
+    flex-basis: 90px;
+    width: 90px;
+  }
+
+  .related-link {
+    gap: 13px;
+  }
+
+  .process-section {
+    margin-top: 85px;
+  }
+
+  .process-gallery {
+    width: 90%;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 520px) {
+  .related-section {
+    width: calc(100% - 44px);
+    margin-top: 65px;
+    padding-bottom: 65px;
+  }
+
+  .related-heading .hero-bottom-center {
+    margin-bottom: 25px;
+  }
+
+  .related-links {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    max-width: 300px;
+    margin: 28px auto 0;
+  }
+
+  .related-link {
+    gap: 18px;
+  }
+
+  .related-image {
+    flex-basis: 88px;
+    width: 88px;
+  }
+
+  .related-copy h3 {
+    font-size: 15px;
+  }
+
+  .process-section {
+    margin-top: 75px;
+    margin-bottom: 10px;
+  }
+
+  .process-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 85%;
+    gap: 10px;
+  }
+}

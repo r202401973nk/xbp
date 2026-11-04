@@ -1,83 +1,183 @@
 @charset "utf-8";
-@import url('https://fonts.googleapis.com/css?family=Raleway:700&display=swap');
-@import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:400,700&display=swap&subset=japanese');
 
-/* ========== 全体 ========== */
-body {
-  background: #f4f2f1;
-  color: #333;
+/* フォント */
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500;600;700&family=Noto+Serif+JP:wght@600;700;800&display=swap');
+
+/* 全体 */
+:root {
+  --bg: #F6F5F1;
+  --accent: #7E1D22;
+  --sub-accent: #D7B6AE;
+  --sub-color: #D8D4CC;
+  --text: #292725;
+
+  --font-jp: "Noto Sans JP", sans-serif;
+  --font-serif: "Noto Serif JP", serif;
+  --font-en: "DM Mono", monospace;
+}
+
+html, body {
   margin: 0;
-  text-align: center;
-}
-
-
-/* ヘッダー */
-header {
-  background-color: #fff; /* ヘッダーの背景を白に */
-  padding: 2em 0 1em 0;
-  margin-bottom: 3em;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* 軽く影をつけて境界を出す */
-}
-
-h1 {
-  font-size: 2.2rem;
-  margin: 0;
-  font-family: 'Impact', sans-serif; /* ← この1行を追加！ */
-  letter-spacing: 1px; /* ← おまけ：Impactは文字がギュッと詰まりやすいので、少し文字の間隔を空けると読みやすくてかっこよくなります（お好みで調整してください） */
-}
-/* ヘッダー内のサブタイトル（-yuina-） */
-h2 {
-  font-size: 1.2rem;
-  margin: 0.2em 0 1.5em 0;
-  font-weight: bold; /* ← normalからboldに変更！ */
-  color: #666;
-}
-
-/* メニューバー（ナビゲーション） */
-.navbar ul {
-  list-style: none;
   padding: 0;
-  margin: 0;
+  min-height: 100%;
+  font-family: var(--font-jp);
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--bg);
+}
+
+/* コンテンツ全体 */
+.content-frame {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3em 5%;
+}
+
+/* パンくずリスト */
+.breadcrumb {
   display: flex;
-  justify-content: center; /* 中央揃え */
-  gap: 3em; /* 項目間の間隔 */
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.7em;
+  margin-bottom: 2.5em;
+  font-family: var(--font-en);
+  font-size: 0.78rem;
+  color: #858078;
 }
 
-/* メニューバーのリンク（HOME, doyolab） */
-.navbar a {
+.breadcrumb a {
+  color: var(--text);
   text-decoration: none;
-  color: #333;
-  font-weight: 700;/* ← ここがboldになっていれば太字になります */
-  font-size: 1rem;
-  transition: color 0.2s;
+  transition: color 0.2s ease;
 }
 
-.navbar a:hover {
-  color: #999; /* ホバー時に少し色を薄く */
+.breadcrumb a:hover {
+  color: var(--accent);
 }
 
-/* カードリスト */
-.card-list {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1em;
-  max-width: 400px;
-  margin: 0 auto 3em auto;
+.breadcrumb span[aria-current="page"] {
+  color: var(--accent);
+  font-family: var(--font-jp);
 }
 
-.card {
-  display: block;
-  background: #fff;
-  padding: 1em;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  text-decoration: none;
-  color: #333;
-  font-size: 1.1rem;
-  transition: background-color 0.2s, color 0.2s;
+/* 大見出し */
+h1 {
+  display: table;
+  margin: 0 0 1.5em 0.4em;
+  padding-bottom: 0.35em;
+  color: var(--text);
+  font-family: var(--font-jp);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.5;
+  border-bottom: 2px solid var(--accent);
 }
 
-.card:hover {
-  background-color: #333;
-  color: #fff;
+/* 中見出し */
+h2 {
+  margin: 2.5em 0 1.2em 1em;
+  padding: 0.1em 0 0.1em 0.7em;
+  border-left: 4px solid var(--accent);
+  color: var(--text);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* 小見出し */
+h3 {
+  margin: 1.8em 0 0.7em 2em;
+  color: var(--accent);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+/* 文章 */
+.content-frame > div:not(.breadcrumb) {
+  margin: 0.8em 0 1em 3em;
+  line-height: 1.9;
+}
+
+/* リスト */
+ul, ol {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ol {
+  margin-left: 4.5em;
+  line-height: 1.9;
+}
+
+/* 画像 */
+.frame-image {
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+  margin: 1em 0.5em 1em 0;
+  vertical-align: top;
+  border-radius: 4px;
+}
+
+/* テキストリンク */
+.content-frame a:not(.breadcrumb a) {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 4px;
+  transition: color 0.2s ease;
+}
+
+.content-frame a:not(.breadcrumb a):hover {
+  color: #A64A4F;
+  text-decoration-thickness: 2px;
+}
+
+/* スマートフォン */
+@media screen and (max-width: 768px) {
+  .content-frame {
+    padding: 2em 1.5em;
+  }
+
+  .breadcrumb {
+    gap: 0.45em;
+    margin-bottom: 2em;
+    font-size: 0.7rem;
+  }
+
+  h1 {
+    margin-left: 0;
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    margin-left: 0.3em;
+    font-size: 1.3rem;
+  }
+
+  h3 {
+    margin-left: 0.8em;
+    font-size: 1.05rem;
+  }
+
+  .content-frame > div:not(.breadcrumb) {
+    margin-left: 0.8em;
+  }
+
+  .frame-image {
+    margin-left: 0.8em;
+  }
+
+  ol {
+    margin-left: 2em;
+  }
+
+  .content-frame > a {
+    margin-left: 0.8em;
+  }
 }

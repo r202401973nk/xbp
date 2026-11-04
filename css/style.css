@@ -210,7 +210,7 @@ img {
 
 .works-section {
   position: relative;
-  padding: 65px 7% 75px;
+  padding: 100px 7% 75px;
 }
 
 .section-heading {
@@ -529,7 +529,7 @@ img {
   }
 
   .works-section {
-    padding: 55px 6% 65px;
+    padding: 60px 6% 65px;
   }
 
   .section-heading {
@@ -629,7 +629,7 @@ img {
   /* 作品一覧 */
 
   .works-section {
-    padding: 50px 22px 60px;
+    padding: 55px 22px 60px;
   }
 
   .section-heading {
@@ -967,5 +967,55 @@ img {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     width: 85%;
     gap: 10px;
+  }
+}
+
+/* =========================
+   14. RELATED ADJUSTMENT
+========================= */
+
+/* ＊マークを上部と同じフォントで統一 */
+.related-heading .hero-bottom-center {
+  font-family: var(--font-en);
+  font-size: 17px;
+  color: var(--main-color);
+}
+
+/* リンクのホバーアニメーション */
+.related-copy h3 {
+  transition: color 0.3s ease;
+}
+
+.related-link:hover .related-copy h3 {
+  color: var(--main-color);
+}
+
+/* 矢印も少し動かす */
+.related-arrow {
+  transition: transform 0.3s ease;
+}
+
+.related-link:hover .related-arrow {
+  transform: translate(4px, -4px);
+}
+
+/* 制作過程との余白 */
+.process-section {
+  margin-top: 180px;
+}
+
+
+/* TABLET */
+@media (max-width: 760px) {
+  .process-section {
+    margin-top: 150px;
+  }
+}
+
+
+/* MOBILE */
+@media (max-width: 520px) {
+  .process-section {
+    margin-top: 120px;
   }
 }
